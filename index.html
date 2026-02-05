@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Launcher — Modrinth inspired</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="logo">
+          <div class="logo-mark">M</div>
+          <div>
+            <p class="logo-title">Mintcraft</p>
+            <p class="logo-subtitle">Launcher</p>
+          </div>
+        </div>
+        <nav class="nav">
+          <a class="nav-link active" href="#">Главная</a>
+          <a class="nav-link" href="#">Библиотека</a>
+          <a class="nav-link" href="#">Моды</a>
+          <a class="nav-link" href="#">Серверы</a>
+          <a class="nav-link" href="#">Настройки</a>
+        </nav>
+        <div class="sidebar-footer">
+          <p class="status">Онлайн · 8.1.0</p>
+          <button class="ghost-button">Открыть папку</button>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <h1>Новый мир, новые модпаки</h1>
+            <p>Подберите сборку, синхронизируйте сохранения и запускайте игру в один клик.</p>
+          </div>
+          <div class="profile">
+            <div class="profile-text">
+              <span>Кирилл</span>
+              <small>Premium</small>
+            </div>
+            <div class="avatar">K</div>
+          </div>
+        </header>
+
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-tab="preview" role="tab" aria-selected="true">
+            Предварительный просмотр
+          </button>
+          <button class="tab" data-tab="diff" role="tab" aria-selected="false">Разница</button>
+          <button class="tab" data-tab="logs" role="tab" aria-selected="false">Журналы</button>
+        </div>
+
+        <section class="hero" data-panel="preview">
+          <div>
+            <p class="hero-tag">Рекомендуемый модпак</p>
+            <h2>Emerald Horizons</h2>
+            <p>
+              128 модов · Fabric 1.20.4 · Средние ПК · Оптимизированный рендеринг
+            </p>
+            <div class="hero-actions">
+              <button class="primary-button">Играть</button>
+              <button class="secondary-button">Подробнее</button>
+              <button class="ghost-button installer-open">Запустить установщик</button>
+            </div>
+          </div>
+          <div class="hero-card">
+            <div>
+              <h3>Синхронизация в облако</h3>
+              <p>Сохраняйте миры и конфиги между устройствами.</p>
+            </div>
+            <button class="ghost-button">Подключить</button>
+          </div>
+        </section>
+
+        <section class="grid" data-panel="preview">
+          <div class="panel">
+            <h3>Быстрый старт</h3>
+            <ul>
+              <li>Создайте профиль</li>
+              <li>Подберите моды</li>
+              <li>Запустите игру</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Профили</h3>
+            <div class="profile-list">
+              <div class="profile-card">
+                <span>Vanilla+</span>
+                <small>1.20.4 · 22 мода</small>
+              </div>
+              <div class="profile-card">
+                <span>Sky Islands</span>
+                <small>1.19.3 · 63 мода</small>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>Новости</h3>
+            <p>Добавили новые фильтры, быстрые обновления и каталог Fabric.</p>
+            <button class="secondary-button">Читать обновление</button>
+          </div>
+          <div class="panel panel-wide">
+            <h3>Скачивание модов и модпаков</h3>
+            <div class="download-list">
+              <div class="download-item">
+                <div>
+                  <strong>Better Leaves</strong>
+                  <p>Ставится в профиль Vanilla+ · <span class="progress" data-progress="64">64%</span></p>
+                </div>
+                <button class="ghost-button download-toggle" data-action="pause">Пауза</button>
+              </div>
+              <div class="download-item">
+                <div>
+                  <strong>Emerald Horizons</strong>
+                  <p>Установка модпака · <span class="progress" data-progress="12">12%</span></p>
+                </div>
+                <button class="ghost-button download-toggle" data-action="queue">Очередь</button>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-wide">
+            <h3>Создание установки</h3>
+            <p>Собирайте модпаки, выбирайте загрузчик и назначайте память для запуска.</p>
+            <div class="install-actions">
+              <button class="primary-button installer-open">Новая установка</button>
+              <button class="secondary-button">Импортировать сборку</button>
+            </div>
+          </div>
+          <div class="panel panel-wide">
+            <h3>Быстрый переход между сборками</h3>
+            <p>
+              Одна клавиша — и вы в другой вселенной. Текущая:
+              <strong class="current-profile">Vanilla+</strong>
+            </p>
+            <div class="switcher">
+              <button class="switcher-chip active" data-profile="Vanilla+">Vanilla+</button>
+              <button class="switcher-chip" data-profile="Sky Islands">Sky Islands</button>
+              <button class="switcher-chip" data-profile="Emerald Horizons">Emerald Horizons</button>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>Аккаунт</h3>
+            <p>Microsoft · Premium</p>
+            <button class="secondary-button">Сменить аккаунт</button>
+          </div>
+          <div class="panel">
+            <h3>Версия игры</h3>
+            <div class="select-row">
+              <div>
+                <strong>1.20.4 Fabric</strong>
+                <p>Автообновление включено</p>
+              </div>
+              <button class="ghost-button">Сменить</button>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>Ресурсы</h3>
+            <p>Память JVM: <strong><span class="memory-value">6</span> ГБ</strong></p>
+            <input class="memory-slider" type="range" min="2" max="12" value="6" />
+          </div>
+          <div class="panel">
+            <h3>Быстрый вход</h3>
+            <p>Запуск сразу в мир или на сервер с главного экрана.</p>
+            <div class="quick-toggle">
+              <label class="switch">
+                <input class="quick-toggle-input" type="checkbox" checked />
+                <span class="slider"></span>
+              </label>
+              <span class="quick-toggle-label">Включено</span>
+            </div>
+            <div class="select-row">
+              <div>
+                <strong>Emerald SMP</strong>
+                <p>Сервер · 1.20.4</p>
+              </div>
+              <button class="ghost-button">Сменить</button>
+            </div>
+          </div>
+          <div class="panel panel-wide">
+            <h3>Менеджер модов</h3>
+            <div class="mod-list">
+              <div class="mod-item">
+                <div>
+                  <strong>Replay Mod</strong>
+                  <p>Обновление доступно · 2.6.13</p>
+                </div>
+                <button class="ghost-button">Обновить</button>
+              </div>
+              <div class="mod-item">
+                <div>
+                  <strong>Lithium</strong>
+                  <p>Включен · 0.12.1</p>
+                </div>
+                <button class="ghost-button">Отключить</button>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-wide">
+            <h3>Серверы</h3>
+            <div class="server-list">
+              <div class="server-item">
+                <div>
+                  <strong>Emerald SMP</strong>
+                  <p>Онлайн · 84 игрока</p>
+                </div>
+                <button class="secondary-button">Подключиться</button>
+              </div>
+              <div class="server-item">
+                <div>
+                  <strong>Sky Islands Coop</strong>
+                  <p>Онлайн · 12 игроков</p>
+                </div>
+                <button class="secondary-button">Подключиться</button>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-wide">
+            <h3>Центр обновлений</h3>
+            <p>Launcher 8.1.0 · 1 обновление доступно</p>
+            <div class="install-actions">
+              <button class="primary-button">Обновить сейчас</button>
+              <button class="ghost-button">Отложить</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel panel-wide hidden" data-panel="diff">
+          <h3>Разница между сборками</h3>
+          <p>Сравните моды, версии и настройки памяти перед переключением.</p>
+          <div class="diff-grid">
+            <div>
+              <h4>Vanilla+</h4>
+              <ul>
+                <li>22 мода · Fabric 1.20.4</li>
+                <li>Память: 4 ГБ</li>
+                <li>Шейдеры: отключены</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Emerald Horizons</h4>
+              <ul>
+                <li>128 модов · Fabric 1.20.4</li>
+                <li>Память: 8 ГБ</li>
+                <li>Шейдеры: включены</li>
+              </ul>
+            </div>
+          </div>
+          <button class="secondary-button">Открыть сравнение</button>
+        </section>
+
+        <section class="panel panel-wide hidden" data-panel="logs">
+          <h3>Журналы запуска</h3>
+          <p>Последние события и статус установки модов.</p>
+          <div class="log-list">
+            <p><span class="log-tag">12:41</span> Обновлены зависимости Fabric.</p>
+            <p><span class="log-tag">12:39</span> Начата загрузка модпака Emerald Horizons.</p>
+            <p><span class="log-tag">12:37</span> Сборка Vanilla+ успешно запущена.</p>
+          </div>
+          <button class="ghost-button">Открыть полный лог</button>
+        </section>
+        <section class="panel panel-wide hidden" data-panel="installer">
+          <h3>Установщик сборки</h3>
+          <p>Настройте параметры и запустите установку выбранной сборки.</p>
+          <div class="installer-summary">
+            <div>
+              <h4>Пакет</h4>
+              <p>Emerald Horizons · Fabric 1.20.4 · 128 модов</p>
+            </div>
+            <div>
+              <h4>Место установки</h4>
+              <p>~/Games/Mintcraft/Instances/Emerald</p>
+            </div>
+          </div>
+          <div class="install-actions">
+            <button class="primary-button">Начать установку</button>
+            <button class="secondary-button installer-close">Закрыть</button>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div class="installer-modal hidden">
+      <div class="installer-card">
+        <div class="installer-header">
+          <div>
+            <h3>Мастер установки</h3>
+            <p>Шаг 1 из 3 · Параметры сборки</p>
+          </div>
+          <button class="ghost-button installer-close">Закрыть</button>
+        </div>
+        <div class="installer-grid">
+          <div class="panel">
+            <h4>Платформа</h4>
+            <div class="select-row">
+              <div>
+                <strong>Fabric</strong>
+                <p>Совместимость с модами</p>
+              </div>
+              <button class="ghost-button">Сменить</button>
+            </div>
+          </div>
+          <div class="panel">
+            <h4>Папка</h4>
+            <p>~/Games/Mintcraft/Instances</p>
+            <button class="ghost-button">Выбрать путь</button>
+          </div>
+          <div class="panel">
+            <h4>Память</h4>
+            <p>Рекомендуется 6 ГБ</p>
+            <input class="memory-slider" type="range" min="2" max="12" value="6" />
+          </div>
+          <div class="panel">
+            <h4>Оптимизация</h4>
+            <ul>
+              <li>Скачать зависимости</li>
+              <li>Проверить шейдеры</li>
+              <li>Создать ярлык</li>
+            </ul>
+          </div>
+        </div>
+        <div class="install-actions">
+          <button class="primary-button">Установить</button>
+          <button class="secondary-button installer-close">Отмена</button>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
