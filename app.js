@@ -3,6 +3,7 @@ const panels = document.querySelectorAll("[data-panel]");
 const profileLabel = document.querySelector(".current-profile");
 const switcherChips = document.querySelectorAll(".switcher-chip");
 const downloadButtons = document.querySelectorAll(".download-toggle");
+const navLinks = document.querySelectorAll(".nav-link");
 const installerOpenButtons = document.querySelectorAll(".installer-open");
 const installerCloseButtons = document.querySelectorAll(".installer-close");
 const memorySliders = document.querySelectorAll(".memory-slider");
@@ -27,6 +28,18 @@ const showPanel = (target) => {
 
 tabs.forEach((tab) => {
   tab.addEventListener("click", () => showPanel(tab.dataset.tab));
+});
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    const target = link.dataset.panel;
+    if (target) {
+      showPanel(target);
+      navLinks.forEach((item) => item.classList.remove("active"));
+      link.classList.add("active");
+    }
+  });
 });
 
 switcherChips.forEach((chip) => {
@@ -98,5 +111,10 @@ buttons.forEach((button) => {
   button.addEventListener("click", () => {
     const label = button.dataset.actionLabel || button.textContent?.trim() || "Готово";
     updateToast(`Действие: ${label}`);
+
+    const target = button.dataset.panelTarget;
+    if (target) {
+      showPanel(target);
+    }
   });
 });

@@ -333,6 +333,28 @@ body {
   gap: 14px;
 }
 
+.instance-list,
+.download-queue {
+  display: grid;
+  gap: 16px;
+}
+
+.instance-card {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(19, 44, 70, 0.5);
+  border: 1px solid rgba(243, 247, 212, 0.08);
+}
+
+.instance-grid,
+.browse-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
 .setting-row {
   display: flex;
   justify-content: space-between;
@@ -604,6 +626,11 @@ body {
   }
 
   .installer-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .instance-grid,
+  .browse-grid {
     grid-template-columns: 1fr;
   }
 }

@@ -23,11 +23,11 @@
           </div>
         </div>
         <nav class="nav">
-          <a class="nav-link active" href="#">Главная</a>
-          <a class="nav-link" href="#">Библиотека</a>
-          <a class="nav-link" href="#">Моды</a>
-          <a class="nav-link" href="#">Серверы</a>
-          <a class="nav-link" href="#">Настройки</a>
+          <a class="nav-link active" href="#" data-panel="preview">Главная</a>
+          <a class="nav-link" href="#" data-panel="library">Библиотека</a>
+          <a class="nav-link" href="#" data-panel="browse">Обзор</a>
+          <a class="nav-link" href="#" data-panel="downloads">Загрузки</a>
+          <a class="nav-link" href="#" data-panel="settings">Настройки</a>
         </nav>
         <div class="sidebar-footer">
           <p class="status">Онлайн · 8.1.0</p>
@@ -67,9 +67,11 @@
               128 модов · Fabric 1.20.4 · Средние ПК · Оптимизированный рендеринг
             </p>
             <div class="hero-actions">
-              <button class="primary-button">Играть</button>
-              <button class="secondary-button">Подробнее</button>
-              <button class="ghost-button installer-open">Запустить установщик</button>
+              <button class="primary-button" data-action-label="Запуск игры">Играть</button>
+              <button class="secondary-button" data-action-label="Открыть детали">Подробнее</button>
+              <button class="ghost-button installer-open" data-panel-target="installer">
+                Запустить установщик
+              </button>
             </div>
           </div>
           <div class="hero-card">
@@ -131,8 +133,12 @@
             <h3>Создание установки</h3>
             <p>Собирайте модпаки, выбирайте загрузчик и назначайте память для запуска.</p>
             <div class="install-actions">
-              <button class="primary-button installer-open">Новая установка</button>
-              <button class="secondary-button">Импортировать сборку</button>
+              <button class="primary-button installer-open" data-panel-target="installer">
+                Новая установка
+              </button>
+              <button class="secondary-button" data-action-label="Импортировать сборку">
+                Импортировать сборку
+              </button>
             </div>
           </div>
           <div class="panel panel-wide">
@@ -291,6 +297,183 @@
                 </div>
                 <button class="ghost-button">Изменить путь</button>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel panel-wide hidden" data-panel="library">
+          <h3>Библиотека инстансов</h3>
+          <div class="instance-list">
+            <div class="instance-card">
+              <div>
+                <strong>Vanilla+</strong>
+                <p>1.20.4 · Fabric · RAM 4 ГБ</p>
+              </div>
+              <div class="install-actions">
+                <button class="secondary-button" data-panel-target="instance">Открыть</button>
+                <button class="ghost-button" data-action-label="Дублировать инстанс">
+                  Дублировать
+                </button>
+                <button class="ghost-button" data-action-label="Экспорт zip">
+                  Экспорт zip
+                </button>
+                <button class="ghost-button" data-action-label="Удалить инстанс">
+                  Удалить
+                </button>
+              </div>
+            </div>
+            <div class="instance-card">
+              <div>
+                <strong>Emerald Horizons</strong>
+                <p>1.20.4 · Fabric · RAM 8 ГБ</p>
+              </div>
+              <div class="install-actions">
+                <button class="secondary-button" data-panel-target="instance">Открыть</button>
+                <button class="ghost-button" data-action-label="Дублировать инстанс">
+                  Дублировать
+                </button>
+                <button class="ghost-button" data-action-label="Экспорт zip">
+                  Экспорт zip
+                </button>
+                <button class="ghost-button" data-action-label="Удалить инстанс">
+                  Удалить
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="install-actions">
+            <button class="primary-button" data-panel-target="instance">Создать инстанс</button>
+            <button class="secondary-button" data-action-label="Импортировать .mrpack">
+              Импорт .mrpack
+            </button>
+          </div>
+        </section>
+
+        <section class="panel panel-wide hidden" data-panel="instance">
+          <h3>Инстанс: Emerald Horizons</h3>
+          <div class="instance-grid">
+            <div class="panel">
+              <h4>Версия и лоадер</h4>
+              <p>Minecraft 1.20.4 · Fabric · Loader 0.15.6</p>
+              <button class="ghost-button" data-action-label="Изменить версию">
+                Изменить
+              </button>
+            </div>
+            <div class="panel">
+              <h4>Java</h4>
+              <p>Auto · Temurin 17</p>
+              <button class="ghost-button" data-action-label="Выбрать Java">
+                Выбрать
+              </button>
+            </div>
+            <div class="panel">
+              <h4>Папки</h4>
+              <ul>
+                <li>mods/</li>
+                <li>resourcepacks/</li>
+                <li>shaderpacks/</li>
+                <li>config/</li>
+                <li>saves/</li>
+              </ul>
+            </div>
+            <div class="panel">
+              <h4>Экспорт</h4>
+              <p>Сохраните инстанс как zip.</p>
+              <button class="secondary-button" data-action-label="Экспортировать инстанс">
+                Экспорт zip
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel panel-wide hidden" data-panel="browse">
+          <h3>Обзор контента</h3>
+          <div class="browse-grid">
+            <div class="panel">
+              <h4>Modrinth</h4>
+              <p>Поиск и установка модов, ресурспаков, шейдеров.</p>
+              <button class="primary-button" data-action-label="Открыть Modrinth">
+                Открыть каталог
+              </button>
+            </div>
+            <div class="panel">
+              <h4>CurseForge</h4>
+              <p>Требуется ключ API. Добавьте в настройках.</p>
+              <button class="ghost-button" data-action-label="Настроить ключ CurseForge">
+                Настроить ключ
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel panel-wide hidden" data-panel="downloads">
+          <h3>Менеджер загрузок</h3>
+          <div class="download-queue">
+            <div class="download-item">
+              <div>
+                <strong>Install MC 1.20.4</strong>
+                <p>Библиотеки · 42% · 2.4 МБ/с</p>
+              </div>
+              <div class="install-actions">
+                <button class="ghost-button" data-action-label="Пауза задачи">Пауза</button>
+                <button class="ghost-button" data-action-label="Отмена задачи">Отмена</button>
+              </div>
+            </div>
+            <div class="download-item">
+              <div>
+                <strong>Fabric Loader</strong>
+                <p>Установка · ожидание</p>
+              </div>
+              <div class="install-actions">
+                <button class="ghost-button" data-action-label="Старт задачи">Старт</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel panel-wide hidden" data-panel="settings">
+          <h3>Настройки</h3>
+          <div class="settings-list">
+            <div class="setting-row">
+              <div>
+                <strong>RAM min/max</strong>
+                <p>4 ГБ / 8 ГБ</p>
+              </div>
+              <button class="ghost-button" data-action-label="Изменить RAM">Изменить</button>
+            </div>
+            <div class="setting-row">
+              <div>
+                <strong>Java path override</strong>
+                <p>Не задан</p>
+              </div>
+              <button class="ghost-button" data-action-label="Указать Java">Указать</button>
+            </div>
+            <div class="setting-row">
+              <div>
+                <strong>Аргументы JVM</strong>
+                <p>-Xmx8G -Xms4G</p>
+              </div>
+              <button class="ghost-button" data-action-label="Изменить JVM args">
+                Изменить
+              </button>
+            </div>
+            <div class="setting-row">
+              <div>
+                <strong>Язык</strong>
+                <p>RU / EN</p>
+              </div>
+              <button class="ghost-button" data-action-label="Переключить язык">
+                Переключить
+              </button>
+            </div>
+            <div class="setting-row">
+              <div>
+                <strong>Тема</strong>
+                <p>Dark</p>
+              </div>
+              <button class="ghost-button" data-action-label="Переключить тему">
+                Переключить
+              </button>
             </div>
           </div>
         </section>

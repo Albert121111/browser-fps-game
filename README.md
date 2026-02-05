@@ -1,42 +1,99 @@
-# browser-fps-game
+# Mintcraft Launcher
 
-## Запуск лаунчера
+## Roadmap (milestones)
 
-Быстрый способ посмотреть статичный прототип:
+1. **MVP instances + install**: instance CRUD, version/loader install, basic downloads.
+2. **Auth + launch**: Microsoft device flow, offline profile fallback, launch args generation.
+3. **Content**: Modrinth search/install/update, .mrpack import, CurseForge adapter stub.
+4. **Downloads**: queue, resume, concurrency, error retries.
+5. **Stabilization**: tests, logging, updater, i18n, release pipelines.
 
-1. Запустите локальный сервер в корне репозитория:
+## Структура проекта
 
-   ```bash
-   python -m http.server 8000
-   ```
+```
+.
+├── app.js
+├── index.html
+├── styles.css
+├── package.json
+├── vite.config.js
+├── .eslintrc.cjs
+├── src-tauri
+│   ├── Cargo.toml
+│   ├── build.rs
+│   ├── tauri.conf.json
+│   └── src
+│       ├── main.rs
+│       ├── state.rs
+│       └── commands
+│           ├── auth.rs
+│           ├── downloads.rs
+│           ├── installers.rs
+│           ├── instances.rs
+│           ├── java.rs
+│           ├── launch.rs
+│           ├── manifests.rs
+│           ├── modrinth.rs
+│           ├── settings.rs
+│           ├── utils.rs
+│           └── mod.rs
+```
 
-2. Откройте в браузере:
+## Prerequisites
 
-   ```
-   http://127.0.0.1:8000/
-   ```
+- **Rust** (stable) + Cargo
+- **Node.js** (18+)
+- **Tauri CLI** (`cargo install tauri-cli`)
 
-Если сервер поднимать не нужно, можно открыть файл `index.html` напрямую в браузере.
+## Dev run
 
-## Возможности приложения
+```bash
+npm install
+npm run dev
+# in another terminal
+npm run tauri dev
+```
 
-- Переключение вкладок (предпросмотр, разница, журналы).
-- Быстрый переход между сборками.
-- Демо-очередь загрузок с автообновлением прогресса.
-- Экран установщика сборки и настройки ресурсов.
-- Модули для аккаунта, серверов, модов и обновлений лаунчера.
-- Быстрый вход в выбранный мир или на сервер с главного экрана.
-- Расширенный блок настроек лаунчера с переключателями поведения.
-- Мастер установки с шагами параметров, компонентов и финальной сборки.
+## Build release
 
-## Как собрать .exe
+```bash
+npm install
+npm run build
+npm run tauri build
+```
 
-Сейчас это статический HTML/CSS/JS прототип. Чтобы получить реальный .exe, нужен контейнер
-приложения (например, Electron или Tauri). Базовый план:
+## Data dirs
 
-1. Создать десктопный проект (Electron/Tauri).
-2. Поместить текущие файлы (`index.html`, `styles.css`, `app.js`) в папку `dist`/`public`.
-3. Указать стартовый файл `index.html`.
-4. Собрать дистрибутив через стандартные команды сборки фреймворка.
+- **Launcher data**: `~/.config/mintcraft` (Linux), `~/Library/Application Support/mintcraft` (macOS), `%APPDATA%\mintcraft` (Windows)
+- **Instances**: `~/Games/Mintcraft/Instances` (default, configurable)
 
-Если хотите, скажите, какой именно стек предпочитаете — подготовлю конфиги под Windows.
+## Авторизация Microsoft
+
+- Используется device code flow (или PKCE при веб-логине в будущем).
+- Токены сохраняются через системное secure storage (keyring).
+- Если авторизация недоступна, используется offline профиль (ник без входа).
+
+## CurseForge адаптер
+
+Официальный API требует ключ. В проекте оставлен адаптер-заглушка и UI-уведомление. После добавления ключа
+можно подключить реальные запросы.
+
+## Обновления
+
+Tauri updater включен в `tauri.conf.json`. Добавьте endpoint в список `endpoints`, когда будет настроен
+сервер обновлений.
+
+## Проверки качества
+
+```bash
+npm run lint
+cargo fmt
+cargo clippy
+```
+
+## Возможности прототипа UI
+
+- Переключение страниц: Library, Instance, Browse, Downloads, Settings.
+- Инстансы с настройками версии/лоадера/Java и управлением папками.
+- Очередь загрузок и простая визуализация прогресса.
+- Установщик сборки как отдельная панель.
