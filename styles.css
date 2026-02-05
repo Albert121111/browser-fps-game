@@ -204,6 +204,7 @@ body {
 .hero-actions {
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 .hero-card {
@@ -287,6 +288,13 @@ body {
   margin-top: 4px;
 }
 
+.select-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
 .progress {
   color: var(--cream);
   font-weight: 600;
@@ -352,6 +360,80 @@ body {
   font-weight: 600;
 }
 
+.mod-list,
+.server-list {
+  display: grid;
+  gap: 12px;
+}
+
+.mod-item,
+.server-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 14px;
+  background: rgba(92, 184, 168, 0.08);
+  border-radius: 14px;
+  border: 1px solid rgba(92, 184, 168, 0.2);
+}
+
+.mod-item p,
+.server-item p,
+.select-row p {
+  color: rgba(243, 247, 212, 0.6);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.memory-slider {
+  width: 100%;
+}
+
+.installer-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(92, 184, 168, 0.08);
+  border: 1px solid rgba(92, 184, 168, 0.2);
+}
+
+.installer-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 20, 31, 0.6);
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  z-index: 10;
+}
+
+.installer-card {
+  width: min(980px, 100%);
+  background: rgba(19, 44, 70, 0.95);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 30px 80px rgba(9, 20, 31, 0.5);
+  border: 1px solid rgba(243, 247, 212, 0.15);
+  display: grid;
+  gap: 20px;
+}
+
+.installer-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.installer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
 .primary-button,
 .secondary-button,
 .ghost-button {
@@ -404,6 +486,11 @@ body {
   }
 
   .diff-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .installer-summary,
+  .installer-grid {
     grid-template-columns: 1fr;
   }
 }

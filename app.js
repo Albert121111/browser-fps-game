@@ -3,6 +3,11 @@ const panels = document.querySelectorAll("[data-panel]");
 const profileLabel = document.querySelector(".current-profile");
 const switcherChips = document.querySelectorAll(".switcher-chip");
 const downloadButtons = document.querySelectorAll(".download-toggle");
+const installerModal = document.querySelector(".installer-modal");
+const installerOpenButtons = document.querySelectorAll(".installer-open");
+const installerCloseButtons = document.querySelectorAll(".installer-close");
+const memorySliders = document.querySelectorAll(".memory-slider");
+const memoryValues = document.querySelectorAll(".memory-value");
 
 const showPanel = (target) => {
   panels.forEach((panel) => {
@@ -50,3 +55,32 @@ const tickProgress = () => {
 };
 
 setInterval(tickProgress, 5000);
+
+const toggleInstaller = (shouldOpen) => {
+  if (!installerModal) {
+    return;
+  }
+  installerModal.classList.toggle("hidden", !shouldOpen);
+};
+
+installerOpenButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    showPanel("installer");
+    toggleInstaller(true);
+  });
+});
+
+installerCloseButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    toggleInstaller(false);
+    showPanel("preview");
+  });
+});
+
+memorySliders.forEach((slider) => {
+  slider.addEventListener("input", () => {
+    memoryValues.forEach((valueNode) => {
+      valueNode.textContent = slider.value;
+    });
+  });
+});

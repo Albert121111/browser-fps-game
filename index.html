@@ -68,6 +68,7 @@
             <div class="hero-actions">
               <button class="primary-button">Играть</button>
               <button class="secondary-button">Подробнее</button>
+              <button class="ghost-button installer-open">Запустить установщик</button>
             </div>
           </div>
           <div class="hero-card">
@@ -129,7 +130,7 @@
             <h3>Создание установки</h3>
             <p>Собирайте модпаки, выбирайте загрузчик и назначайте память для запуска.</p>
             <div class="install-actions">
-              <button class="primary-button">Новая установка</button>
+              <button class="primary-button installer-open">Новая установка</button>
               <button class="secondary-button">Импортировать сборку</button>
             </div>
           </div>
@@ -143,6 +144,72 @@
               <button class="switcher-chip active" data-profile="Vanilla+">Vanilla+</button>
               <button class="switcher-chip" data-profile="Sky Islands">Sky Islands</button>
               <button class="switcher-chip" data-profile="Emerald Horizons">Emerald Horizons</button>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>Аккаунт</h3>
+            <p>Microsoft · Premium</p>
+            <button class="secondary-button">Сменить аккаунт</button>
+          </div>
+          <div class="panel">
+            <h3>Версия игры</h3>
+            <div class="select-row">
+              <div>
+                <strong>1.20.4 Fabric</strong>
+                <p>Автообновление включено</p>
+              </div>
+              <button class="ghost-button">Сменить</button>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>Ресурсы</h3>
+            <p>Память JVM: <strong><span class="memory-value">6</span> ГБ</strong></p>
+            <input class="memory-slider" type="range" min="2" max="12" value="6" />
+          </div>
+          <div class="panel panel-wide">
+            <h3>Менеджер модов</h3>
+            <div class="mod-list">
+              <div class="mod-item">
+                <div>
+                  <strong>Replay Mod</strong>
+                  <p>Обновление доступно · 2.6.13</p>
+                </div>
+                <button class="ghost-button">Обновить</button>
+              </div>
+              <div class="mod-item">
+                <div>
+                  <strong>Lithium</strong>
+                  <p>Включен · 0.12.1</p>
+                </div>
+                <button class="ghost-button">Отключить</button>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-wide">
+            <h3>Серверы</h3>
+            <div class="server-list">
+              <div class="server-item">
+                <div>
+                  <strong>Emerald SMP</strong>
+                  <p>Онлайн · 84 игрока</p>
+                </div>
+                <button class="secondary-button">Подключиться</button>
+              </div>
+              <div class="server-item">
+                <div>
+                  <strong>Sky Islands Coop</strong>
+                  <p>Онлайн · 12 игроков</p>
+                </div>
+                <button class="secondary-button">Подключиться</button>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-wide">
+            <h3>Центр обновлений</h3>
+            <p>Launcher 8.1.0 · 1 обновление доступно</p>
+            <div class="install-actions">
+              <button class="primary-button">Обновить сейчас</button>
+              <button class="ghost-button">Отложить</button>
             </div>
           </div>
         </section>
@@ -181,7 +248,70 @@
           </div>
           <button class="ghost-button">Открыть полный лог</button>
         </section>
+        <section class="panel panel-wide hidden" data-panel="installer">
+          <h3>Установщик сборки</h3>
+          <p>Настройте параметры и запустите установку выбранной сборки.</p>
+          <div class="installer-summary">
+            <div>
+              <h4>Пакет</h4>
+              <p>Emerald Horizons · Fabric 1.20.4 · 128 модов</p>
+            </div>
+            <div>
+              <h4>Место установки</h4>
+              <p>~/Games/Mintcraft/Instances/Emerald</p>
+            </div>
+          </div>
+          <div class="install-actions">
+            <button class="primary-button">Начать установку</button>
+            <button class="secondary-button installer-close">Закрыть</button>
+          </div>
+        </section>
       </main>
+    </div>
+    <div class="installer-modal hidden">
+      <div class="installer-card">
+        <div class="installer-header">
+          <div>
+            <h3>Мастер установки</h3>
+            <p>Шаг 1 из 3 · Параметры сборки</p>
+          </div>
+          <button class="ghost-button installer-close">Закрыть</button>
+        </div>
+        <div class="installer-grid">
+          <div class="panel">
+            <h4>Платформа</h4>
+            <div class="select-row">
+              <div>
+                <strong>Fabric</strong>
+                <p>Совместимость с модами</p>
+              </div>
+              <button class="ghost-button">Сменить</button>
+            </div>
+          </div>
+          <div class="panel">
+            <h4>Папка</h4>
+            <p>~/Games/Mintcraft/Instances</p>
+            <button class="ghost-button">Выбрать путь</button>
+          </div>
+          <div class="panel">
+            <h4>Память</h4>
+            <p>Рекомендуется 6 ГБ</p>
+            <input class="memory-slider" type="range" min="2" max="12" value="6" />
+          </div>
+          <div class="panel">
+            <h4>Оптимизация</h4>
+            <ul>
+              <li>Скачать зависимости</li>
+              <li>Проверить шейдеры</li>
+              <li>Создать ярлык</li>
+            </ul>
+          </div>
+        </div>
+        <div class="install-actions">
+          <button class="primary-button">Установить</button>
+          <button class="secondary-button installer-close">Отмена</button>
+        </div>
+      </div>
     </div>
     <script src="app.js"></script>
   </body>
