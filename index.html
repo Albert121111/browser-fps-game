@@ -41,6 +41,7 @@
             <h1>Новый мир, новые модпаки</h1>
             <p>Подберите сборку, синхронизируйте сохранения и запускайте игру в один клик.</p>
           </div>
+          <div class="action-toast" aria-live="polite">Готово к запуску.</div>
           <div class="profile">
             <div class="profile-text">
               <span>Кирилл</span>
@@ -373,104 +374,6 @@
           </div>
         </section>
       </main>
-    </div>
-    <div class="installer-modal hidden">
-      <div class="installer-card">
-        <div class="installer-header">
-          <div>
-            <h3>Мастер установки</h3>
-            <p>Шаг 1 из 3 · Параметры сборки</p>
-          </div>
-          <button class="ghost-button installer-close">Закрыть</button>
-        </div>
-        <div class="installer-steps">
-          <button class="step-pill active" data-step="1">Параметры</button>
-          <button class="step-pill" data-step="2">Компоненты</button>
-          <button class="step-pill" data-step="3">Финиш</button>
-        </div>
-        <div class="installer-grid">
-          <div class="panel">
-            <h4>Платформа</h4>
-            <div class="select-row">
-              <div>
-                <strong>Fabric</strong>
-                <p>Совместимость с модами</p>
-              </div>
-              <button class="ghost-button">Сменить</button>
-            </div>
-          </div>
-          <div class="panel">
-            <h4>Папка</h4>
-            <p>~/Games/Mintcraft/Instances</p>
-            <button class="ghost-button">Выбрать путь</button>
-          </div>
-          <div class="panel">
-            <h4>Память</h4>
-            <p>Рекомендуется 6 ГБ</p>
-            <input class="memory-slider" type="range" min="2" max="12" value="6" />
-          </div>
-          <div class="panel">
-            <h4>Оптимизация</h4>
-            <ul>
-              <li>Скачать зависимости</li>
-              <li>Проверить шейдеры</li>
-              <li>Создать ярлык</li>
-            </ul>
-          </div>
-        </div>
-        <div class="installer-stage hidden" data-step="2">
-          <div class="panel">
-            <h4>Компоненты</h4>
-            <div class="settings-list">
-              <div class="setting-row">
-                <div>
-                  <strong>Fabric API</strong>
-                  <p>Обязательная библиотека.</p>
-                </div>
-                <label class="switch">
-                  <input type="checkbox" checked />
-                  <span class="slider"></span>
-                </label>
-              </div>
-              <div class="setting-row">
-                <div>
-                  <strong>Шейдеры</strong>
-                  <p>Включить Iris + базовый пресет.</p>
-                </div>
-                <label class="switch">
-                  <input type="checkbox" />
-                  <span class="slider"></span>
-                </label>
-              </div>
-              <div class="setting-row">
-                <div>
-                  <strong>Ресурспак</strong>
-                  <p>Mintcraft UI · 64x.</p>
-                </div>
-                <label class="switch">
-                  <input type="checkbox" checked />
-                  <span class="slider"></span>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="installer-stage hidden" data-step="3">
-          <div class="panel">
-            <h4>Готово к установке</h4>
-            <p>Проверено 128 модов · 3 компонента · 6 ГБ памяти.</p>
-            <div class="install-actions">
-              <button class="primary-button">Установить сейчас</button>
-              <button class="ghost-button">Сохранить как шаблон</button>
-            </div>
-          </div>
-        </div>
-        <div class="install-actions">
-          <button class="secondary-button installer-prev">Назад</button>
-          <button class="primary-button installer-next">Далее</button>
-          <button class="ghost-button installer-close">Отмена</button>
-        </div>
-      </div>
     </div>
     <script src="app.js"></script>
   </body>

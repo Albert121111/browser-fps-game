@@ -3,17 +3,14 @@ const panels = document.querySelectorAll("[data-panel]");
 const profileLabel = document.querySelector(".current-profile");
 const switcherChips = document.querySelectorAll(".switcher-chip");
 const downloadButtons = document.querySelectorAll(".download-toggle");
-const installerModal = document.querySelector(".installer-modal");
 const installerOpenButtons = document.querySelectorAll(".installer-open");
 const installerCloseButtons = document.querySelectorAll(".installer-close");
 const memorySliders = document.querySelectorAll(".memory-slider");
 const memoryValues = document.querySelectorAll(".memory-value");
 const quickToggleInput = document.querySelector(".quick-toggle-input");
 const quickToggleLabel = document.querySelector(".quick-toggle-label");
-const stepButtons = document.querySelectorAll(".step-pill");
-const installerStages = document.querySelectorAll(".installer-stage");
-const installerNext = document.querySelector(".installer-next");
-const installerPrev = document.querySelector(".installer-prev");
+const actionToast = document.querySelector(".action-toast");
+const buttons = document.querySelectorAll("button");
 
 const showPanel = (target) => {
   panels.forEach((panel) => {
@@ -62,24 +59,14 @@ const tickProgress = () => {
 
 setInterval(tickProgress, 5000);
 
-const toggleInstaller = (shouldOpen) => {
-  if (!installerModal) {
-    return;
-  }
-  installerModal.classList.toggle("hidden", !shouldOpen);
-};
-
 installerOpenButtons.forEach((button) => {
   button.addEventListener("click", () => {
     showPanel("installer");
-    toggleInstaller(true);
-    setInstallerStep("1");
   });
 });
 
 installerCloseButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    toggleInstaller(false);
     showPanel("preview");
   });
 });
@@ -100,34 +87,16 @@ if (quickToggleInput && quickToggleLabel) {
   updateQuickLabel();
 }
 
-const setInstallerStep = (step) => {
-  stepButtons.forEach((button) => {
-    const isActive = button.dataset.step === step;
-    button.classList.toggle("active", isActive);
-  });
-  installerStages.forEach((stage) => {
-    stage.classList.toggle("hidden", stage.dataset.step !== step);
-  });
+const updateToast = (message) => {
+  if (!actionToast) {
+    return;
+  }
+  actionToast.textContent = message;
 };
 
-stepButtons.forEach((button) => {
+buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    setInstallerStep(button.dataset.step);
+    const label = button.dataset.actionLabel || button.textContent?.trim() || "Готово";
+    updateToast(`Действие: ${label}`);
   });
 });
-
-if (installerNext && installerPrev) {
-  installerNext.addEventListener("click", () => {
-    const active = document.querySelector(".step-pill.active");
-    const current = Number.parseInt(active?.dataset.step ?? "1", 10);
-    const next = Math.min(current + 1, 3);
-    setInstallerStep(String(next));
-  });
-
-  installerPrev.addEventListener("click", () => {
-    const active = document.querySelector(".step-pill.active");
-    const current = Number.parseInt(active?.dataset.step ?? "1", 10);
-    const prev = Math.max(current - 1, 1);
-    setInstallerStep(String(prev));
-  });
-}

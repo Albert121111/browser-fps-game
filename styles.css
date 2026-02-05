@@ -144,6 +144,17 @@ body {
   color: rgba(243, 247, 212, 0.7);
 }
 
+.action-toast {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(92, 184, 168, 0.15);
+  border: 1px solid rgba(92, 184, 168, 0.3);
+  color: var(--cream);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .profile {
   display: flex;
   align-items: center;
@@ -528,70 +539,6 @@ body {
   color: rgba(243, 247, 212, 0.7);
 }
 
-.installer-steps {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.step-pill {
-  border: 1px solid rgba(243, 247, 212, 0.1);
-  background: rgba(243, 247, 212, 0.08);
-  color: rgba(243, 247, 212, 0.7);
-  padding: 6px 12px;
-  border-radius: 999px;
-  cursor: pointer;
-  font-family: inherit;
-  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
-}
-
-.step-pill.active {
-  background: var(--mint);
-  color: var(--navy);
-  border-color: transparent;
-  transform: translateY(-1px);
-}
-
-.installer-stage {
-  display: grid;
-  gap: 16px;
-}
-
-.installer-modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(9, 20, 31, 0.6);
-  display: grid;
-  place-items: center;
-  padding: 32px;
-  z-index: 10;
-  animation: fade-in 0.3s ease;
-}
-
-.installer-card {
-  width: min(980px, 100%);
-  background: rgba(19, 44, 70, 0.95);
-  border-radius: 24px;
-  padding: 24px;
-  box-shadow: 0 30px 80px rgba(9, 20, 31, 0.5);
-  border: 1px solid rgba(243, 247, 212, 0.15);
-  display: grid;
-  gap: 20px;
-  animation: card-rise 0.4s ease both;
-}
-
-.installer-header {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  align-items: center;
-}
-
-.installer-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
 
 .primary-button,
 .secondary-button,
@@ -656,8 +603,7 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .installer-summary,
-  .installer-grid {
+  .installer-summary {
     grid-template-columns: 1fr;
   }
 }
