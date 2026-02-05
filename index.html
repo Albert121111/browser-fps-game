@@ -341,6 +341,32 @@
               <p>~/Games/Mintcraft/Instances/Emerald</p>
             </div>
           </div>
+          <div class="installer-progress">
+            <div class="step">
+              <span class="step-index">1</span>
+              <div>
+                <strong>Проверка зависимостей</strong>
+                <p>Проверяем Java и загрузчик.</p>
+              </div>
+              <span class="step-status">Готово</span>
+            </div>
+            <div class="step active">
+              <span class="step-index">2</span>
+              <div>
+                <strong>Скачивание модов</strong>
+                <p>64 из 128 · 62%</p>
+              </div>
+              <span class="step-status">В процессе</span>
+            </div>
+            <div class="step">
+              <span class="step-index">3</span>
+              <div>
+                <strong>Оптимизация</strong>
+                <p>Подготовка конфигов и шейдеров.</p>
+              </div>
+              <span class="step-status">Ожидание</span>
+            </div>
+          </div>
           <div class="install-actions">
             <button class="primary-button">Начать установку</button>
             <button class="secondary-button installer-close">Закрыть</button>
@@ -356,6 +382,11 @@
             <p>Шаг 1 из 3 · Параметры сборки</p>
           </div>
           <button class="ghost-button installer-close">Закрыть</button>
+        </div>
+        <div class="installer-steps">
+          <button class="step-pill active" data-step="1">Параметры</button>
+          <button class="step-pill" data-step="2">Компоненты</button>
+          <button class="step-pill" data-step="3">Финиш</button>
         </div>
         <div class="installer-grid">
           <div class="panel">
@@ -387,9 +418,57 @@
             </ul>
           </div>
         </div>
+        <div class="installer-stage hidden" data-step="2">
+          <div class="panel">
+            <h4>Компоненты</h4>
+            <div class="settings-list">
+              <div class="setting-row">
+                <div>
+                  <strong>Fabric API</strong>
+                  <p>Обязательная библиотека.</p>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked />
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="setting-row">
+                <div>
+                  <strong>Шейдеры</strong>
+                  <p>Включить Iris + базовый пресет.</p>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" />
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="setting-row">
+                <div>
+                  <strong>Ресурспак</strong>
+                  <p>Mintcraft UI · 64x.</p>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked />
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="installer-stage hidden" data-step="3">
+          <div class="panel">
+            <h4>Готово к установке</h4>
+            <p>Проверено 128 модов · 3 компонента · 6 ГБ памяти.</p>
+            <div class="install-actions">
+              <button class="primary-button">Установить сейчас</button>
+              <button class="ghost-button">Сохранить как шаблон</button>
+            </div>
+          </div>
+        </div>
         <div class="install-actions">
-          <button class="primary-button">Установить</button>
-          <button class="secondary-button installer-close">Отмена</button>
+          <button class="secondary-button installer-prev">Назад</button>
+          <button class="primary-button installer-next">Далее</button>
+          <button class="ghost-button installer-close">Отмена</button>
         </div>
       </div>
     </div>
