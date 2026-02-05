@@ -8,6 +8,8 @@ const installerOpenButtons = document.querySelectorAll(".installer-open");
 const installerCloseButtons = document.querySelectorAll(".installer-close");
 const memorySliders = document.querySelectorAll(".memory-slider");
 const memoryValues = document.querySelectorAll(".memory-value");
+const quickToggleInput = document.querySelector(".quick-toggle-input");
+const quickToggleLabel = document.querySelector(".quick-toggle-label");
 
 const showPanel = (target) => {
   panels.forEach((panel) => {
@@ -84,3 +86,11 @@ memorySliders.forEach((slider) => {
     });
   });
 });
+
+if (quickToggleInput && quickToggleLabel) {
+  const updateQuickLabel = () => {
+    quickToggleLabel.textContent = quickToggleInput.checked ? "Включено" : "Выключено";
+  };
+  quickToggleInput.addEventListener("change", updateQuickLabel);
+  updateQuickLabel();
+}
