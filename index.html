@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Launcher — Modrinth inspired</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="logo">
+          <div class="logo-mark">M</div>
+          <div>
+            <p class="logo-title">Mintcraft</p>
+            <p class="logo-subtitle">Launcher</p>
+          </div>
+        </div>
+        <nav class="nav">
+          <a class="nav-link active" href="#">Главная</a>
+          <a class="nav-link" href="#">Библиотека</a>
+          <a class="nav-link" href="#">Моды</a>
+          <a class="nav-link" href="#">Серверы</a>
+          <a class="nav-link" href="#">Настройки</a>
+        </nav>
+        <div class="sidebar-footer">
+          <p class="status">Онлайн · 8.1.0</p>
+          <button class="ghost-button">Открыть папку</button>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <h1>Новый мир, новые модпаки</h1>
+            <p>Подберите сборку, синхронизируйте сохранения и запускайте игру в один клик.</p>
+          </div>
+          <div class="profile">
+            <div class="profile-text">
+              <span>Кирилл</span>
+              <small>Premium</small>
+            </div>
+            <div class="avatar">K</div>
+          </div>
+        </header>
+
+        <div class="tabs">
+          <button class="tab active">Предварительный просмотр</button>
+          <button class="tab">Разница</button>
+          <button class="tab">Журналы</button>
+        </div>
+
+        <section class="hero">
+          <div>
+            <p class="hero-tag">Рекомендуемый модпак</p>
+            <h2>Emerald Horizons</h2>
+            <p>
+              128 модов · Fabric 1.20.4 · Средние ПК · Оптимизированный рендеринг
+            </p>
+            <div class="hero-actions">
+              <button class="primary-button">Играть</button>
+              <button class="secondary-button">Подробнее</button>
+            </div>
+          </div>
+          <div class="hero-card">
+            <div>
+              <h3>Синхронизация в облако</h3>
+              <p>Сохраняйте миры и конфиги между устройствами.</p>
+            </div>
+            <button class="ghost-button">Подключить</button>
+          </div>
+        </section>
+
+        <section class="grid">
+          <div class="panel">
+            <h3>Быстрый старт</h3>
+            <ul>
+              <li>Создайте профиль</li>
+              <li>Подберите моды</li>
+              <li>Запустите игру</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Профили</h3>
+            <div class="profile-list">
+              <div class="profile-card">
+                <span>Vanilla+</span>
+                <small>1.20.4 · 22 мода</small>
+              </div>
+              <div class="profile-card">
+                <span>Sky Islands</span>
+                <small>1.19.3 · 63 мода</small>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>Новости</h3>
+            <p>Добавили новые фильтры, быстрые обновления и каталог Fabric.</p>
+            <button class="secondary-button">Читать обновление</button>
+          </div>
+          <div class="panel panel-wide">
+            <h3>Скачивание модов и модпаков</h3>
+            <div class="download-list">
+              <div class="download-item">
+                <div>
+                  <strong>Better Leaves</strong>
+                  <p>Ставится в профиль Vanilla+ · 64%</p>
+                </div>
+                <button class="ghost-button">Пауза</button>
+              </div>
+              <div class="download-item">
+                <div>
+                  <strong>Emerald Horizons</strong>
+                  <p>Установка модпака · 12%</p>
+                </div>
+                <button class="ghost-button">Очередь</button>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-wide">
+            <h3>Создание установки</h3>
+            <p>Собирайте модпаки, выбирайте загрузчик и назначайте память для запуска.</p>
+            <div class="install-actions">
+              <button class="primary-button">Новая установка</button>
+              <button class="secondary-button">Импортировать сборку</button>
+            </div>
+          </div>
+          <div class="panel panel-wide">
+            <h3>Быстрый переход между сборками</h3>
+            <p>Одна клавиша — и вы в другой вселенной. Текущая: <strong>Vanilla+</strong></p>
+            <div class="switcher">
+              <button class="switcher-chip active">Vanilla+</button>
+              <button class="switcher-chip">Sky Islands</button>
+              <button class="switcher-chip">Emerald Horizons</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
